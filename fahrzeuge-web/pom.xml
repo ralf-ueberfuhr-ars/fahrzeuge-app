@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>de.ars.schulung.javaee</groupId>
+		<artifactId>fahrzeuge-app</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>fahrzeuge-web</artifactId>
+
+	<packaging>war</packaging>
+	<name>Fahrzeuge Web Application</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>fahrzeuge-utility</artifactId>
+			<version>${project.version}</version>
+			<!-- wird nicht ins WAR verpackt, sondern ins EAR --> 
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+</project>

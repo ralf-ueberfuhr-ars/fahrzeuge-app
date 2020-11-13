@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>de.ars.schulung.javaee</groupId>
+		<artifactId>fahrzeuge-app</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>fahrzeuge-ear</artifactId>
+
+	<packaging>ear</packaging>
+	<name>Fahrzeuge Enterprise App</name>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-ear-plugin</artifactId>
+					<configuration>
+						<modules>
+							<webModule>
+								<groupId>${project.groupId}</groupId>
+								<artifactId>fahrzeuge-web</artifactId>
+								<contextRoot>fahrzeuge-app</contextRoot>
+							</webModule>
+						</modules>
+						<security>
+							<security-role>
+								<role-name>admin</role-name>
+							</security-role>
+						</security>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>fahrzeuge-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>fahrzeuge-utility</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
